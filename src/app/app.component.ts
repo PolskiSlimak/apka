@@ -12,16 +12,19 @@ export class AppComponent {
     let value = event.value;
     if (value != "")
       this.todos.push(value);
-    value = '';
+    event.value = '';
   }
-  addToDone(event) {
-    let todos = this.todos;
-    let i = todos.indexOf(event);
-    todos.splice(i,1);
-    this.done.push(event);
+  addToDone(item) {
+    this.removeItem(item);
+    this.done.push(item);
   }
   onClear() {
     this.todos = [];
     this.done = [];
+  }
+  removeItem(item) {
+    let todos = this.todos;
+    let i = todos.indexOf(item);
+    todos.splice(i,1);
   }
 }
