@@ -1,7 +1,12 @@
 <input type="text" #in (keyup.enter)="onAdd($event.target)">
 <button (click)="onAdd(in)">Dodaj</button>
+<p>TODO</p>
 <ul>
-  <li *ngFor="let item of todos">{{item}}</li>
+  <li *ngFor="let item of todos">{{item}} <button (click)="addToDone(item)">Przenieś</button></li>
+</ul>
+<p>DONE</p>
+<ul>
+  <li *ngFor="let item of done">{{item}}</li>
 </ul>
 <div>
   <button (click)="onClear()">Wyczyść</button>
