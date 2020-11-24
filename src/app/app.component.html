@@ -1,0 +1,8 @@
+<input type="text" #in (keyup.enter)="onAdd($event.target)">
+<button (click)="onAdd(in)">Dodaj</button>
+<ul>
+  <li *ngFor="let item of todos">{{item}}</li>
+</ul>
+<div>
+  <button (click)="onClear()">Wyczyść</button>
+</div>
