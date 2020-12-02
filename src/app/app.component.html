@@ -7,13 +7,13 @@
   <div id ="todo">TODO</div>
 
   <ul>
-    <li *ngFor="let item of todos"><input type="checkbox" (click)="addToDone(item)">{{item}}<i class ="close" (click)="removeItem(item)"></i></li>
+    <li *ngFor="let item of todos"><input type="checkbox" (click)="addToDone(item)">{{item.label}}, {{item.date | date:'M/d/yy, h:mm a'}}<i class ="close" (click)="removeItem(item)"></i></li>
   </ul>
 
   <div id="done">DONE</div>
 
   <ul>
-    <li *ngFor="let item of done"><input type="checkbox" onclick="return false;" checked>{{item}}</li>
+    <li *ngFor="let item of done"><input type="checkbox" onclick="return false;" checked>{{item.label}}, {{item.date | date:'M/d/yy, h:mm a'}}</li>
   </ul>
 
   <div>

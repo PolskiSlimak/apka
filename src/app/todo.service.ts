@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { of } from "rxjs";
+import { Todo } from './todo.js';
+import { fromEventPattern, of } from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +22,10 @@ export class TodoService {
   }
 
   addTodo(todo: string) {
-    this.todos.push(todo);
+    this.todos.push({
+      label: todo,
+      date: Date.now()
+    });
     this.setLocalStorage('todos', this.todos);
   }
 

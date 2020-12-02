@@ -8,6 +8,7 @@
 }
 ul {
     margin: 0px;
+    padding: 15px;
     list-style-type: none;
     background-color: rgb(77, 255, 166);
 }
@@ -41,14 +42,13 @@ button:focus {
 .close {
     position: relative;
     opacity: 0.5;
+    left: 5px;
 }
 .close:hover {
     opacity: 1;
 }
 .close:before, .close:after {
-    margin-right: 1000px;
     position: absolute;
-    left: 5px;
     content: ' ';
     height: 10px;
     width: 2px;
