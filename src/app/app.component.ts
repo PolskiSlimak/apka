@@ -31,16 +31,8 @@ export class AppComponent {
     event.value = "";
   }
 
-  addToDone(item) {
-    this.removeItem(item);
-    this.todoService.addDone(item);
-  }
-
   onClear() {
     this.todoService.removeAll();
   }
 
-  removeItem(item) {
-    this.todoService.removeItem(item);
-  }
 }
