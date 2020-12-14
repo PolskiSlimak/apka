@@ -16,7 +16,7 @@
 
   <ul>
     <li *ngFor="let item of done">
-      <input type="checkbox" onclick="return false;" checked>{{item.label}}, {{item.date | date:'M/d/yy, h:mm a'}}
+      <input type="checkbox" onclick="return false;" checked>{{item.label}}, {{item.date | pipe}}
     </li>
   </ul>
 

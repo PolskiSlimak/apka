@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
+import { PipePipe } from './pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent
+    TodosComponent,
+    PipePipe
   ],
   imports: [
     BrowserModule

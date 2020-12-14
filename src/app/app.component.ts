@@ -15,13 +15,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.todoService.getTodos().subscribe( todos => {
-      console.log(todos);
-      this.todos = todos;
-    });
-    this.todoService.getDone().subscribe( done => {
-      this.done = done;
-    });;
+    setInterval(() => {
+    this.todoService.getTodos().subscribe( todos => this.todos = todos)
+    this.todoService.getDone().subscribe( done => this.done = done);
+    }, 1000);
   }
 
   onAdd(event) {
