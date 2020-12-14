@@ -1,16 +1,27 @@
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Just+Another+Hand" />
 <div id = "container">
+  
   <input type="text" #in (keyup.enter)="onAdd($event.target)">
   <button (click)="onAdd(in)">Dodaj</button>
+
   <div id ="todo">TODO</div>
+
   <ul>
-    <li *ngFor="let item of todos"><input type="checkbox" (click)="addToDone(item)">{{item}}<i class ="close" (click)="removeItem(item)"></i></li>
+    <li *ngFor="let item of todos">
+      <app-todos [item] = "item"></app-todos>
+    </li>
   </ul>
+
   <div id="done">DONE</div>
+
   <ul>
-    <li *ngFor="let item of done"><input type="checkbox" onclick="return false;" checked>{{item}}</li>
+    <li *ngFor="let item of done">
+      <input type="checkbox" onclick="return false;" checked>{{item.label}}, {{item.date | pipe}}
+    </li>
   </ul>
+
   <div>
     <button (click)="onClear()" id = "lower">Wyczyść</button>
   </div>
+
 </div>

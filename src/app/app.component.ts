@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TodoService } from './todo.service';
 
 @Component({
   selector: 'app-root',
@@ -6,25 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   todos = [];
   done = [];
+
+  constructor(private todoService: TodoService) {
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+    this.todoService.getTodos().subscribe( todos => this.todos = todos)
+    this.todoService.getDone().subscribe( done => this.done = done);
+    }, 1000);
+  }
+
   onAdd(event) {
     let value = event.value;
     if (value != "")
-      this.todos.push(value);
-    event.value = '';
+      this.todoService.addTodo(value);
+    event.value = "";
   }
-  addToDone(item) {
-    this.removeItem(item);
-    this.done.push(item);
-  }
+
   onClear() {
-    this.todos = [];
-    this.done = [];
+    this.todoService.removeAll();
   }
-  removeItem(item) {
-    let todos = this.todos;
-    let i = todos.indexOf(item);
-    todos.splice(i,1);
-  }
+
 }
